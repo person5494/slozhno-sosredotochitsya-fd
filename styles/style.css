@@ -1,5 +1,333 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-image: var(--bg-image);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--main-bg-color);
+  font-family: var(--main-font-family);
+  font-size: var(--main-text-size);
+  line-height: var(--main-line-height);
+}
+
+.header {
+  block-size: 100dvh;
+  min-block-size: 668px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr minmax(min-content, max-content) 1fr;
+  padding: var(--main-gap);
+  margin-block-end: var(--main-margin);
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.header__rec {
+  position: absolute;
+  color: var(--nav-color);
+  font-size: var(--main-text-size);
+  line-height: var(--main-line-height);
+  text-transform: uppercase;
+  inset-inline-end: calc(var(--main-gap) + 28px);
+  inset-block-start: var(--main-gap);
+}
+
+.header__rec::after {
+  content: "";
+  position: absolute;
+  inline-size: 10px;
+  block-size: 10px;
+  margin: -5px -20px 0 0;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--nav-color);
+  background-color: var(--nav-color);
+  inset-inline-end: 0;
+  inset-block-start: 50%;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-end: 1px solid var(--nav-color);
+  border-block-start: 1px solid var(--nav-color);
+  inset-inline-end: var(--main-gap);
+  inset-block-start: var(--main-gap);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-start: 1px solid var(--nav-color);
+  border-block-end: 1px solid var(--nav-color);
+  inset-inline-start: var(--main-gap);
+  inset-block-end: var(--main-gap);
+}
+
+.header__theme-menu {
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  color: var(--nav-color);
+  padding: 1.5px 13px;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--nav-hover-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-block-end: 1px solid var(--nav-color);
+  padding-block-end: 0.5px;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--nav-color);
+  pointer-events: none;
+}
+
+.header__logo {
+  grid-row: 2;
+}
+
+.logo {
+  font-size: var(--logo-size);
+  font-weight: 700;
+  color: var(--logo-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
+  line-height: 0.83;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+}
+
+.header__content {
+  grid-row: 3;
+  align-self: center;
+  font-size: var(--main-text-size);
+  color: var(--main-heading-color);
+  font-weight: 700;
+  line-height: var(--main-line-height);
+}
+
+.content {
+  display: grid;
+  padding: 0 var(--main-gap);
+  gap: 50px;
+  margin-block-end: var(--main-margin);
+}
+
+.content__section {
+  display: grid;
+  grid-auto-rows: minmax(min-content, max-content);
+  gap: 20px;
+}
+
+.content__section-title {
+  font-size: var(--main-text-size);
+  color: var(--section-heading-color);
+  font-weight: 700;
+  line-height: var(--main-line-height);
+}
+
+.link {
+  text-decoration: none;
+  text-shadow: 2px 2px var(--accent-color);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link:focus {
+  outline: none;
+}
+
+.link:focus-visible {
+  outline: 1px solid var(--main-text-color);
+}
+
+.text__blocks {
+  display: grid;
+  gap: 20px;
+  color: var(--main-text-color);
+}
+
+.text__block {
+  display: grid;
+  grid-template-rows: minmax(min-content, max-content);
+  gap: 10px;
+}
+
+.text__block-title {
+  font-size: var(--main-text-size);
+  font-weight: 700;
+  line-height: var(--main-line-height);
+  color: var(--main-heading-color);
+}
+
+.text__block-subtitle {
+  font-size: var(--main-text-size);
+  font-weight: 400;
+  line-height: var(--main-line-height);
+  color: var(--main-heading-color);
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--main-gap);
+}
+
+.gallery-title {
+  font-size: var(--main-text-size);
+  font-weight: 700;
+  line-height: var(--main-line-height);
+  color: var(--main-heading-color);
+}
+
+.gallery-images {
+  display: grid;
+  gap: var(--main-gap);
+}
+
+.gallery-image {
+  inline-size: 100%;
+}
+
+.footer {
+  block-size: 100dvh;
+  min-block-size: 668px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--main-gap);
+}
+
+/* Почему-то медиа-запросы в современном виде @media (1024px > width >= 768px) не работают у меня */
+
+@media (min-width: 768px) {
+  :root {
+    --main-gap: 20px;
+    --main-margin: 60px;
+    --logo-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header__theme-menu {
+    grid-column: 2;
+  }
+
+  .header__logo {
+    margin-inline-start: calc(-1 * var(--main-gap));
+    grid-column: 1 / -1;
+  }
+
+  .header__content {
+    grid-column: 2;
+  }
+
+  .content {
+    gap: 80px;
+  }
+
+  .content__section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content__section-title {
+    grid-column: 1 / 2;
+  }
+
+  .text__blocks {
+    grid-column: 2 / -1;
+  }
+
+  .causes .text__blocks {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-title {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-images {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;
+  }
+
+  .gallery-image {
+    inline-size: 100%;
+    block-size: 100%;
+    max-block-size: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .gallery-image:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  .gallery-image:nth-child(2) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+  }
+
+  .gallery-image:nth-child(3) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+  }
+
+  .gallery-image:nth-child(4) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .gallery-image:nth-child(5) {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .causes .text__blocks {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header__theme-menu {
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+  }
 }
