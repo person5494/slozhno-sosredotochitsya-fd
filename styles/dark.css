@@ -1,11 +1,19 @@
 :root.theme-dark {
-  --accent-color: #FF0070;
+  --accent-color: #ff0070;
   --main-bg-color: #000028;
   --bg-image: url(../images/cover-image-dark.png);
-  --main-text-color: #F1B2CE;
-  --nav-color: #FF0070;
+  --main-text-color: #f1b2ce;
+  --nav-color: #ff0070;
   --nav-hover-color: rgba(255, 0, 112, 0.4);
   --main-heading-color: #000028;
-  --section-heading-color: #FF0070;
-  --logo-color: #DB00FF;
+  --section-heading-color: #ff0070;
+  --logo-color: #db00ff;
+
+  .header__rec {
+    display: block;
+  }
+
+  .header__rec::after {
+    display: block;
+  }
 }
