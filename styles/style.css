@@ -2,11 +2,8 @@
   background-image: var(--bg-image);
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-  background-color: var(--main-bg-color);
-  font-family: var(--main-font-family);
-  font-size: var(--main-text-size);
-  line-height: var(--main-line-height);
 }
 
 .header {
@@ -14,7 +11,7 @@
   min-block-size: 668px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr minmax(min-content, max-content) 1fr;
+  grid-template-rows: 1fr min-content 1fr;
   padding: var(--main-gap);
   margin-block-end: var(--main-margin);
 }
